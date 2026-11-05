@@ -1,0 +1,58 @@
+04/11/2026 21:36:08 | INFO | El sistema Software FJ se inició correctamente.
+04/11/2026 21:36:08 | INFO | Se registró un nuevo cliente.
+04/11/2026 21:36:08 | ERROR | Se presentó un error de prueba en el sistema.
+04/11/2026 21:39:09 | INFO | Se creó la reserva R001 para el cliente Maria Lopez.
+04/11/2026 21:39:09 | INFO | La reserva R001 fue confirmada.
+04/11/2026 21:39:09 | INFO | La reserva R001 fue procesada. Costo total: $100,000.00
+04/11/2026 22:33:53 | INFO | Se creó la reserva R002 para el cliente Laura Gomez.
+04/11/2026 22:33:53 | INFO | La reserva R002 fue confirmada.
+04/11/2026 22:33:53 | INFO | La reserva R002 fue procesada. Costo total: $80,000.00
+04/11/2026 22:39:02 | INFO | Se creó la reserva R005 para el cliente Andrea Martinez.
+04/11/2026 22:39:02 | INFO | La reserva R005 fue confirmada.
+04/11/2026 22:39:02 | INFO | La reserva R005 fue procesada. Costo total: $150,000.00
+04/11/2026 22:53:48 | INFO | El sistema Software FJ se inició correctamente.
+04/11/2026 22:53:48 | INFO | Se registró un nuevo cliente.
+04/11/2026 22:53:48 | ERROR | Se presentó un error de prueba en el sistema.
+04/11/2026 22:57:11 | INFO | Se creó la reserva R002 para el cliente Laura Gomez.
+04/11/2026 22:57:11 | INFO | La reserva R002 fue confirmada.
+04/11/2026 22:57:11 | INFO | La reserva R002 fue procesada. Costo total: $80,000.00
+04/11/2026 23:07:57 | INFO | El sistema Software FJ se inició correctamente.
+04/11/2026 23:07:57 | INFO | Cliente Maria Lopez registrado correctamente.
+04/11/2026 23:07:57 | INFO | Cliente Laura Gomez registrado correctamente.
+04/11/2026 23:07:57 | INFO | Cliente Andres Martinez registrado correctamente.
+04/11/2026 23:07:57 | ERROR | Error al registrar cliente: El correo electrónico no es válido.
+04/11/2026 23:07:57 | INFO | Se creó la reserva R001 para el cliente Maria Lopez.
+04/11/2026 23:07:57 | INFO | La reserva R001 fue confirmada.
+04/11/2026 23:07:57 | INFO | La reserva R001 fue procesada. Costo total: $80,000.00
+04/11/2026 23:07:57 | INFO | Se creó la reserva R002 para el cliente Laura Gomez.
+04/11/2026 23:07:57 | INFO | La reserva R002 fue confirmada.
+04/11/2026 23:07:57 | INFO | La reserva R002 fue procesada. Costo total: $90,000.00
+04/11/2026 23:07:57 | INFO | Se creó la reserva R003 para el cliente Andres Martinez.
+04/11/2026 23:07:57 | INFO | La reserva R003 fue confirmada.
+04/11/2026 23:07:57 | INFO | La reserva R003 fue procesada. Costo total: $120,000.00
+04/11/2026 23:07:57 | ERROR | Error al crear reserva R004: La duración de la reserva debe ser mayor que cero.
+04/11/2026 23:07:57 | ERROR | Error al crear reserva R005: No se puede crear una reserva sin un cliente.
+04/11/2026 23:07:57 | ERROR | Error al crear reserva R006: No se puede crear una reserva sin un servicio.
+04/11/2026 23:07:57 | INFO | Se creó la reserva R007 para el cliente Maria Lopez.
+04/11/2026 23:07:57 | INFO | La reserva R007 fue cancelada.
+04/11/2026 23:07:57 | INFO | La ejecución del sistema finalizó correctamente.
+04/11/2026 23:16:01 | INFO | El sistema Software FJ se inició correctamente.
+04/11/2026 23:16:01 | INFO | Cliente Maria Lopez registrado correctamente.
+04/11/2026 23:16:01 | INFO | Cliente Laura Gomez registrado correctamente.
+04/11/2026 23:16:01 | INFO | Cliente Andres Martinez registrado correctamente.
+04/11/2026 23:16:01 | ERROR | Error al registrar cliente: El correo electrónico no es válido.
+04/11/2026 23:16:01 | INFO | Se creó la reserva R001 para el cliente Maria Lopez.
+04/11/2026 23:16:01 | INFO | La reserva R001 fue confirmada.
+04/11/2026 23:16:01 | INFO | La reserva R001 fue procesada. Costo total: $80,000.00
+04/11/2026 23:16:01 | INFO | Se creó la reserva R002 para el cliente Laura Gomez.
+04/11/2026 23:16:01 | INFO | La reserva R002 fue confirmada.
+04/11/2026 23:16:01 | INFO | La reserva R002 fue procesada. Costo total: $90,000.00
+04/11/2026 23:16:01 | INFO | Se creó la reserva R003 para el cliente Andres Martinez.
+04/11/2026 23:16:01 | INFO | La reserva R003 fue confirmada.
+04/11/2026 23:16:01 | INFO | La reserva R003 fue procesada. Costo total: $120,000.00
+04/11/2026 23:16:01 | ERROR | Error al crear reserva R004: La duración de la reserva debe ser mayor que cero.
+04/11/2026 23:16:01 | ERROR | Error al crear reserva R005: No se puede crear una reserva sin un cliente.
+04/11/2026 23:16:01 | ERROR | Error al crear reserva R006: No se puede crear una reserva sin un servicio.
+04/11/2026 23:16:01 | INFO | Se creó la reserva R007 para el cliente Maria Lopez.
+04/11/2026 23:16:01 | INFO | La reserva R007 fue cancelada.
+04/11/2026 23:16:01 | INFO | La ejecución del sistema finalizó correctamente.
