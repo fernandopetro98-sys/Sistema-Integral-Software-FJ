@@ -3,6 +3,9 @@
 
 from datetime import datetime
 
+from entidades.cliente import Cliente
+from servicios.servicio import Servicio
+
 from reservas.excepciones import (
     ClienteNoEncontradoError,
     ServicioNoDisponibleError,
@@ -22,21 +25,21 @@ class Reserva:
 
         # Validar el código de la reserva.
         if not isinstance(codigo, str) or not codigo.strip():
-            raise ReservaNoValidaError(
-                "El código de la reserva no puede estar vacío."
-            )
+            mensaje = "El código de la reserva no puede estar vacío."
+            registrar_error(mensaje)
+            raise ReservaNoValidaError(mensaje)
 
-        # Validar la existencia del cliente.
-        if cliente is None:
-            raise ClienteNoEncontradoError(
-                "No se puede crear una reserva sin un cliente."
-            )
+        # Validar que el cliente sea un objeto Cliente.
+        if cliente is None or not isinstance(cliente, Cliente):
+            mensaje = "No se puede crear una reserva sin un cliente válido."
+            registrar_error(mensaje)
+            raise ClienteNoEncontradoError(mensaje)
 
-        # Validar la existencia del servicio.
-        if servicio is None:
-            raise ServicioNoDisponibleError(
-                "No se puede crear una reserva sin un servicio."
-            )
+        # Validar que el servicio sea un objeto Servicio.
+        if servicio is None or not isinstance(servicio, Servicio):
+            mensaje = "No se puede crear una reserva sin un servicio válido."
+            registrar_error(mensaje)
+            raise ServicioNoDisponibleError(mensaje)
 
         # Validar la duración.
         if (
@@ -44,9 +47,9 @@ class Reserva:
             or isinstance(duracion, bool)
             or duracion <= 0
         ):
-            raise ReservaNoValidaError(
-                "La duración de la reserva debe ser mayor que cero."
-            )
+            mensaje = "La duración de la reserva debe ser mayor que cero."
+            registrar_error(mensaje)
+            raise ReservaNoValidaError(mensaje)
 
         # Almacenar los datos de la reserva.
         self._codigo = codigo.strip()
@@ -94,9 +97,15 @@ class Reserva:
         """Confirma una reserva que se encuentra pendiente."""
 
         if self._estado != "Pendiente":
-            raise ReservaNoValidaError(
-                "Solo se pueden confirmar reservas pendientes."
+            mensaje = "Solo se pueden confirmar reservas pendientes."
+
+            registrar_error(
+                f"Intento inválido de confirmar la reserva "
+                f"{self._codigo}. Estado actual: {self._estado}. "
+                f"Motivo: {mensaje}"
             )
+
+            raise ReservaNoValidaError(mensaje)
 
         self._estado = "Confirmada"
 
@@ -109,17 +118,37 @@ class Reserva:
     # Cancelar una reserva.
 
     def cancelar(self):
-        """Cancela una reserva que todavía no ha sido procesada."""
+        """Cancela una reserva pendiente o confirmada."""
 
         if self._estado == "Procesada":
-            raise ReservaNoValidaError(
-                "No se puede cancelar una reserva procesada."
+            mensaje = "No se puede cancelar una reserva procesada."
+
+            registrar_error(
+                f"Intento inválido de cancelar la reserva "
+                f"{self._codigo}. Motivo: {mensaje}"
             )
 
+            raise ReservaNoValidaError(mensaje)
+
         if self._estado == "Cancelada":
-            raise ReservaNoValidaError(
-                "La reserva ya se encuentra cancelada."
+            mensaje = "La reserva ya se encuentra cancelada."
+
+            registrar_error(
+                f"Intento inválido de cancelar la reserva "
+                f"{self._codigo}. Motivo: {mensaje}"
             )
+
+            raise ReservaNoValidaError(mensaje)
+
+        if self._estado not in ("Pendiente", "Confirmada"):
+            mensaje = "El estado actual no permite cancelar la reserva."
+
+            registrar_error(
+                f"Intento inválido de cancelar la reserva "
+                f"{self._codigo}. Motivo: {mensaje}"
+            )
+
+            raise ReservaNoValidaError(mensaje)
 
         self._estado = "Cancelada"
 
@@ -135,14 +164,29 @@ class Reserva:
         """Procesa una reserva confirmada y calcula su costo."""
 
         if self._estado != "Confirmada":
-            raise ReservaNoValidaError(
-                "La reserva debe estar confirmada para procesarse."
+            mensaje = "La reserva debe estar confirmada para procesarse."
+
+            registrar_error(
+                f"Intento inválido de procesar la reserva "
+                f"{self._codigo}. Estado actual: {self._estado}. "
+                f"Motivo: {mensaje}"
             )
+
+            raise ReservaNoValidaError(mensaje)
 
         try:
             costo = self._servicio.calcular_costo(
                 self._duracion
             )
+
+            if (
+                not isinstance(costo, (int, float))
+                or isinstance(costo, bool)
+                or costo < 0
+            ):
+                raise ValueError(
+                    "El servicio devolvió un costo inválido."
+                )
 
         except (ValueError, TypeError) as error:
 

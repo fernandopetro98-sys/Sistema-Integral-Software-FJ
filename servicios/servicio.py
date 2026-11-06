@@ -1,5 +1,5 @@
 
-# Clase abstracta Servicio para Software FJ.
+# Clase abstracta Servicio para el sistema Software FJ.
 
 from abc import ABC, abstractmethod
 
@@ -7,23 +7,32 @@ from abc import ABC, abstractmethod
 class Servicio(ABC):
     """
     Clase abstracta que representa los servicios
-    ofrecidos por la empresa Software FJ.
+    ofrecidos por Software FJ.
     """
 
     def __init__(self, codigo, nombre, tarifa):
 
+        # Validar el código.
         if not isinstance(codigo, str) or not codigo.strip():
-            raise ValueError("El código del servicio no puede estar vacío.")
+            raise ValueError(
+                "El código del servicio no puede estar vacío."
+            )
 
+        # Validar el nombre.
         if not isinstance(nombre, str) or not nombre.strip():
-            raise ValueError("El nombre del servicio no puede estar vacío.")
+            raise ValueError(
+                "El nombre del servicio no puede estar vacío."
+            )
 
+        # Validar la tarifa.
         if (
             not isinstance(tarifa, (int, float))
             or isinstance(tarifa, bool)
             or tarifa <= 0
         ):
-            raise ValueError("La tarifa debe ser un número mayor que cero.")
+            raise ValueError(
+                "La tarifa debe ser un número mayor que cero."
+            )
 
         self._codigo = codigo.strip()
         self._nombre = nombre.strip()
@@ -48,10 +57,10 @@ class Servicio(ABC):
 
     @abstractmethod
     def validar_parametros(self, duracion):
-        """Valida los parámetros necesarios para utilizar el servicio."""
+        """Valida los parámetros del servicio."""
         pass
 
     @abstractmethod
     def describir(self):
-        """Devuelve una descripción del servicio."""
+        """Describe las características del servicio."""
         pass

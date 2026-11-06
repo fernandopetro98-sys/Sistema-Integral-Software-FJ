@@ -1,4 +1,4 @@
-# Clase general para representar las entidades del sistema.
+# Clase abstracta Entidad para el sistema Software FJ.
 
 from abc import ABC, abstractmethod
 
@@ -10,7 +10,10 @@ class Entidad(ABC):
     """
 
     def __init__(self, identificador):
-        self._identificador = identificador
+        if not isinstance(identificador, str) or not identificador.strip():
+            raise ValueError("El identificador no puede estar vacío.")
+
+        self._identificador = identificador.strip()
 
     @property
     def identificador(self):
