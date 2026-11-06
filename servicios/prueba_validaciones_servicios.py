@@ -2,6 +2,7 @@
 from servicios.sala import ReservaSala
 from servicios.equipo import AlquilerEquipo
 from servicios.asesoria import Asesoria
+from configuracion_logs import registrar_evento, registrar_error
 
 
 def probar_validaciones():
@@ -34,18 +35,38 @@ def probar_validaciones():
     print("PRUEBAS DE VALIDACIÓN - SOFTWARE FJ")
     print("=" * 55)
 
+    registrar_evento("Inicio de pruebas de validación de servicios.")
+
     for nombre, prueba in pruebas:
         try:
             prueba()
-        except (ValueError, TypeError):
+
+        except (ValueError, TypeError) as error:
             print(f"[CORRECTO] {nombre}: dato inválido rechazado.")
+
+            registrar_error(
+                f"Validación correcta - {nombre}. Motivo: {error}"
+            )
+
             exitos += 1
+
         else:
+            mensaje = (
+                f"ERROR: {nombre}. "
+                "El sistema aceptó un dato inválido."
+            )
+
             print(f"[ERROR] {nombre}: el dato inválido fue aceptado.")
+            registrar_error(mensaje)
 
     print("=" * 55)
     print(f"Pruebas superadas: {exitos} de {len(pruebas)}")
     print("=" * 55)
+
+    registrar_evento(
+        f"Finalizaron las pruebas de validación. "
+        f"Resultados: {exitos} de {len(pruebas)}."
+    )
 
 
 if __name__ == "__main__":
