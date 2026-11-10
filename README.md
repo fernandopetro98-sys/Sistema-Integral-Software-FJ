@@ -6,7 +6,7 @@ El Sistema Integral de Gestión de Clientes, Servicios y Reservas – Software F
 
 Su propósito es facilitar la gestión de clientes, servicios y reservas de una empresa, mediante una estructura modular que permite registrar información, administrar servicios especializados, calcular costos y controlar las operaciones de reserva.
 
-El sistema trabaja con listas en memoria y no utiliza un motor de base de datos.
+El sistema cuenta con un menú interactivo que permite al usuario seleccionar las diferentes operaciones disponibles. La información se administra mediante listas en memoria y no utiliza un motor de base de datos.
 
 ## 2. Objetivo
 
@@ -15,12 +15,14 @@ Desarrollar una solución de software que permita gestionar clientes, servicios 
 ## 3. Funcionalidades principales
 
 - Registro y validación de clientes.
+- Consulta de clientes registrados.
+- Registro y consulta de servicios.
 - Gestión de reservas de salas.
 - Alquiler de equipos.
 - Gestión de asesorías especializadas.
 - Creación, confirmación, procesamiento y cancelación de reservas.
 - Cálculo automático de costos.
-- Validación de datos y operaciones.
+- Validación de datos ingresados por el usuario.
 - Manejo de excepciones personalizadas.
 - Control de estados de las reservas.
 - Registro de eventos y errores mediante archivos de logs.
@@ -87,7 +89,26 @@ El proyecto implementa los siguientes principios:
 
 También se utilizan parámetros opcionales en los métodos de cálculo de costos para permitir diferentes condiciones de impuesto y descuento.
 
-## 7. Manejo de excepciones y validaciones
+## 7. Menú interactivo del sistema
+
+El programa cuenta con un menú principal que permite al usuario interactuar con las diferentes funcionalidades:
+
+1. Registrar cliente.
+2. Mostrar clientes.
+3. Registrar servicio.
+4. Mostrar servicios.
+5. Crear reserva.
+6. Mostrar reservas.
+7. Confirmar reserva.
+8. Cancelar reserva.
+9. Procesar reserva.
+0. Salir.
+
+El usuario selecciona la operación que desea realizar e ingresa los datos solicitados por el sistema.
+
+Además, el programa incorpora validaciones para identificar entradas incorrectas y mostrar mensajes de error sin interrumpir la ejecución.
+
+## 8. Manejo de excepciones y validaciones
 
 El sistema incorpora excepciones personalizadas para controlar situaciones relacionadas con clientes, servicios y reservas.
 
@@ -102,19 +123,21 @@ También se implementa el encadenamiento de excepciones mediante `raise ... from
 
 Las validaciones permiten rechazar información incorrecta, como tarifas no válidas, capacidades negativas o nulas, cantidades incorrectas, especialidades vacías y parámetros de cálculo fuera de los rangos permitidos.
 
-## 8. Registro de eventos y errores
+## 9. Registro de eventos y errores
 
 El sistema utiliza el módulo `logging` de Python para registrar eventos importantes y errores durante la ejecución.
 
 Los registros se almacenan en el archivo `sistema.log`, lo que permite consultar el comportamiento del programa y revisar las situaciones inválidas detectadas.
 
-## 9. Almacenamiento de información
+## 10. Almacenamiento de información
 
 El sistema no utiliza un motor de base de datos.
 
 Los clientes, servicios y reservas se administran mediante listas en memoria durante la ejecución del programa. Esta estructura permite gestionar los objetos y realizar las operaciones solicitadas sin recurrir a una base de datos externa.
 
-## 10. Requisitos de ejecución
+La información registrada en las listas se conserva mientras el programa permanece en ejecución.
+
+## 11. Requisitos de ejecución
 
 Para ejecutar el proyecto se necesita:
 
@@ -123,7 +146,7 @@ Para ejecutar el proyecto se necesita:
 - Descargar o clonar el repositorio.
 - Abrir la terminal en la carpeta principal del proyecto.
 
-## 11. Ejecución del sistema
+## 12. Ejecución del sistema
 
 Desde la carpeta principal del proyecto, ejecutar:
 
@@ -131,9 +154,9 @@ Desde la carpeta principal del proyecto, ejecutar:
 python main.py
 ```
 
-El programa ejecuta una simulación de las operaciones de registro de clientes, creación de servicios, gestión de reservas y control de situaciones inválidas.
+Al iniciar, se mostrará el menú principal de Software FJ. El usuario podrá seleccionar las diferentes opciones, registrar información, realizar reservas, consultar datos y gestionar las operaciones disponibles.
 
-## 12. Ejecución de pruebas
+## 13. Ejecución de pruebas
 
 El proyecto incluye archivos de prueba para verificar el funcionamiento de los módulos.
 
@@ -170,13 +193,13 @@ python -m reservas.prueba_procesamiento_pendiente
 
 Estas pruebas permiten comprobar el registro de clientes, las validaciones de servicios, el cálculo de costos, la creación y procesamiento de reservas, las excepciones personalizadas y el control de operaciones no permitidas.
 
-## 13. Repositorio del proyecto
+## 14. Repositorio del proyecto
 
 El código fuente se encuentra disponible en el siguiente repositorio:
 
 https://github.com/fernandopetro98-sys/Sistema-Integral-Software-FJ
 
-## 14. Autoría y participación
+## 15. Autoría y participación
 
 Proyecto académico correspondiente a la Fase 4 del curso de Programación.
 
@@ -185,10 +208,7 @@ Proyecto académico correspondiente a la Fase 4 del curso de Programación.
 **Integrantes:**
 
 - Jose Fernando Petro Artuz.
-- Brayan Edilson Rojas Castro
+- Brayan Edilson Rojas Castro.
 - [Integrante 3].
 - [Integrante 4].
 - [Integrante 5].
-
-La participación y los aportes de cada integrante deben corresponder a las actividades efectivamente desarrolladas y a las contribuciones registradas durante el trabajo colaborativo.
-
