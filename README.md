@@ -209,6 +209,6 @@ Proyecto académico correspondiente a la Fase 4 del curso de Programación.
 
 - Jose Fernando Petro Artuz.
 - Brayan Edilson Rojas Castro.
-- [Integrante 3].
+- Juan Sebastian Castañeda Pinilla.
 - [Integrante 4].
 - [Integrante 5].
