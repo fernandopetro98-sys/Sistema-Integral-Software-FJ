@@ -1,4 +1,3 @@
-
 # SISTEMA INTEGRAL DE GESTION DE CLIENTES,
 # SERVICIOS Y RESERVAS - SOFTWARE FJ.
 
@@ -64,6 +63,11 @@ def registrar_cliente():
 
         if buscar_cliente(identificador):
             print("Ya existe un cliente con esa identificacion.")
+
+            # Registrar el intento de identificacion duplicada.
+            registrar_error(
+                f"Intento de registrar cliente con identificacion duplicada: {identificador}"
+            )
             return
 
         nombre = input("Nombre completo: ").strip()
@@ -286,7 +290,7 @@ def procesar_reserva():
 
     try:
         resultado = reserva.procesar()
-        print(f"Reserva procesada correctamente.")
+        print("Reserva procesada correctamente.")
         print(f"Costo total: ${resultado:,.2f}")
 
         registrar_evento(f"Reserva {codigo} procesada.")
