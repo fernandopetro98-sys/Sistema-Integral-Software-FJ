@@ -246,11 +246,9 @@ def confirmar_reserva():
     codigo = input("Codigo de la reserva: ").strip()
     reserva = buscar_reserva(codigo)
 
-   if reserva is None:
-    mensaje = f"Intento de confirmar una reserva inexistente: {codigo}"
-    registrar_error(mensaje)
-    print("No se encontro la reserva.")
-    return
+    if reserva is None:
+        print("No se encontro la reserva.")
+        return
 
     try:
         print(reserva.confirmar())
@@ -268,10 +266,8 @@ def cancelar_reserva():
     reserva = buscar_reserva(codigo)
 
     if reserva is None:
-    mensaje = f"Intento de cancelar una reserva inexistente: {codigo}"
-    registrar_error(mensaje)
-    print("No se encontro la reserva.")
-    return
+        print("No se encontro la reserva.")
+        return
 
     try:
         print(reserva.cancelar())
@@ -289,10 +285,8 @@ def procesar_reserva():
     reserva = buscar_reserva(codigo)
 
     if reserva is None:
-    mensaje = f"Intento de procesar una reserva inexistente: {codigo}"
-    registrar_error(mensaje)
-    print("No se encontro la reserva.")
-    return
+        print("No se encontro la reserva.")
+        return
 
     try:
         resultado = reserva.procesar()
