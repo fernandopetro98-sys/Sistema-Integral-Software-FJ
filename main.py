@@ -247,6 +247,7 @@ def confirmar_reserva():
     reserva = buscar_reserva(codigo)
 
     if reserva is None:
+        registrar_error(f"Intento de confirmar una reserva inexistente: {codigo}")
         print("No se encontro la reserva.")
         return
 
@@ -266,6 +267,7 @@ def cancelar_reserva():
     reserva = buscar_reserva(codigo)
 
     if reserva is None:
+        registrar_error(f"Intento de cancelar una reserva inexistente: {codigo}")
         print("No se encontro la reserva.")
         return
 
@@ -285,6 +287,7 @@ def procesar_reserva():
     reserva = buscar_reserva(codigo)
 
     if reserva is None:
+        registrar_error(f"Intento de procesar una reserva inexistente: {codigo}")
         print("No se encontro la reserva.")
         return
 
