@@ -211,4 +211,4 @@ Proyecto académico correspondiente a la Fase 4 del curso de Programación.
 - Brayan Edilson Rojas Castro.
 - Juan Sebastian Castañeda Pinilla.
 - Einer Alexander Mosquera Rodriguez.
-- [Integrante 5].
+- yeiner leonardo beltran bravo.
